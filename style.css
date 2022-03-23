@@ -1,3 +1,30 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+	color: #333;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(23, 179, 218);
+	transition: 0.3s;
+}
+
+a:hover {
+	color: #5828dd;
+	transition: 0.3s;
+}
+
+::-moz-selection {
+	color: white; 
+	background: #1A6DBB;
+}
+
+::selection {
+	color: white; 
+	background: #1A6DBB;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -17,9 +44,15 @@
 .contacts {
     width: 400px;
     margin: 0 auto;
+    font-weight: bold;
 }
 
 .record {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.highlight {
+    color: #999;
 }
