@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "sourceMap": true,
+        "baseUrl": "./src",
+        "target": "es5",
+        "lib": ["es2016", "es2017.object", "es2017.string", "ES2019.Array", "DOM"]
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
