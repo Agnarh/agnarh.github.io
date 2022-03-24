@@ -53,13 +53,33 @@ module.exports = {
                     }
                 }
             },
+            // {
+            //     test: /\.(s[ac]ss|css)$/i,
+            //     use: [
+            //         MiniCssExtractPlugin.loader,
+            //         'css-loader',
+            //         'sass-loader'
+            //     ],
+            // },
             {
-                test: /\.(s[ac]ss|css)$/i,
+                test: /\.(scss)$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'sass-loader'
-                ],
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: function () {
+                                    return [
+                                        require('autoprefixer')
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    { loader: 'sass-loader' }
+                ]
             },
             {
                 test: /\.svg$/,
