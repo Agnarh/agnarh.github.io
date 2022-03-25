@@ -1,9 +1,5 @@
 const path = require('path');
 
-const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production';
-const mode = isProduction ? 'production' : 'development';
-const devtool = isProduction ? false : 'inline-source-map';
-
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -41,74 +37,82 @@ const getOptimization = isProduction => {
     return config;
 };
 
-module.exports = {
-    entry: './src/index.tsx',
-    target: 'web',
-    mode,
-    devtool,
-    module: {
-        rules: [
-            {
-                test: /\.tsx?$/,
-                loader: 'ts-loader',
-                exclude: /node_modules/,
-                options: {
-                    compilerOptions: {
-                        sourceMap: !isProduction,
+module.exports = (env, argv) => {
+    const isProduction = argv.mode === 'production';
+    const mode = isProduction ? 'production' : 'development';
+    const devtool = isProduction ? false : 'inline-source-map';
+
+    console.log(isProduction);
+
+    return {
+        entry: './src/index.tsx',
+        target: 'web',
+        mode,
+        devtool,
+        module: {
+            rules: [
+                {
+                    test: /\.tsx?$/,
+                    loader: 'ts-loader',
+                    exclude: /node_modules/,
+                    options: {
+                        compilerOptions: {
+                            sourceMap: !isProduction,
+                        }
                     }
-                }
-            },
-            {
-                test: /\.(scss)$/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader' },
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            postcssOptions: {
-                                plugins: function () {
-                                    return [
-                                        require('autoprefixer')
-                                    ];
+                },
+                {
+                    test: /\.(scss)$/,
+                    use: [
+                        { loader: 'style-loader' },
+                        { loader: 'css-loader' },
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                postcssOptions: {
+                                    plugins: function () {
+                                        return [
+                                            require('autoprefixer')
+                                        ];
+                                    }
                                 }
                             }
-                        }
-                    },
-                    { loader: 'sass-loader' }
-                ]
-            }
-        ]
-    },
-    resolve: {
-        extensions: ['.tsx', '.ts', '.js']
-    },
-    output: {
-        path: path.resolve(path.join(__dirname, 'dst')),
-        filename: '[name]-[hash]-bundle.js',
-        chunkFilename: '[name]-[hash]-chunk.js',
-        libraryTarget: 'umd'
-    },
-    plugins: [
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: path.resolve(paths.assets, 'photo.jpg'), to: path.resolve(paths.dst) }
+                        },
+                        { loader: 'sass-loader' }
+                    ]
+                }
             ]
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/index.html'
-        }),
-        new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name]-[hash].css'
-        }),
-        new ESLintPlugin({
-            extensions: ['ts', 'tsx'],
-            failOnError: isProduction
-        })
-    ],
-    resolve: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx']
-    },
-    optimization: getOptimization(isProduction)
+        },
+        resolve: {
+            extensions: ['.tsx', '.ts', '.js']
+        },
+        output: {
+            path: path.resolve(path.join(__dirname, 'dst')),
+            filename: '[name]-[hash]-bundle.js',
+            chunkFilename: '[name]-[hash]-chunk.js',
+            libraryTarget: 'umd'
+        },
+        plugins: [
+            new CopyWebpackPlugin({
+                patterns: [
+                    { from: path.resolve(paths.assets, 'photo.jpg'), to: path.resolve(paths.dst) }
+                ]
+            }),
+            new HtmlWebpackPlugin({
+                template: 'src/index.html'
+            }),
+            new CleanWebpackPlugin(),
+            new MiniCssExtractPlugin({
+                filename: '[name]-[hash].css'
+            }),
+            new ESLintPlugin({
+                extensions: ['ts', 'tsx'],
+                failOnError: isProduction
+            })
+        ],
+        resolve: {
+            extensions: ['.js', '.jsx', '.ts', '.tsx']
+        },
+        optimization: getOptimization(isProduction)
+    };
 }
