@@ -3,6 +3,19 @@
 @import '~sanitize.css/typography.css';
 @import "~bootstrap/scss/bootstrap";
 
-// .app {
-//     background-color: red;
-// }
+html,
+body {
+    background-color: #F7F7F7;
+}
+
+.app {
+    a {
+        color: rgb(34, 53, 224);
+        text-decoration: none;
+        transition: 0.3s;
+    }
+    
+    a:hover {
+        color: rgb(142, 95, 185);
+    }
+}

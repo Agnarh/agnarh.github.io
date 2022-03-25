@@ -9,7 +9,7 @@ type ContactRecordProps = {
 export const ContactRecord: FC<ContactRecordProps> = ({ name, href, value }) => {
     return (
         <div>
-            <div>{name}:</div>
+            <div className="fw-bold">{name}:</div>
             <div>
                 {href
                     ? <a href={href}>{value}</a>
