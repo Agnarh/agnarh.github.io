@@ -42,8 +42,6 @@ module.exports = (env, argv) => {
     const mode = isProduction ? 'production' : 'development';
     const devtool = isProduction ? false : 'inline-source-map';
 
-    console.log(isProduction);
-
     return {
         entry: './src/index.tsx',
         target: 'web',
