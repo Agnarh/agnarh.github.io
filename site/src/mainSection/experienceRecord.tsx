@@ -11,8 +11,8 @@ type ExperienceRecordProps = {
 
 export const ExperienceRecord: FC<ExperienceRecordProps> = ({ start, end, title, companyName, responsibilities, achievements }) => (
     <>
-        <div className="col col-12 col-md-2 fw-bold">{start} - {end ? end : 'Present'}</div>
-        <div className="col col-12 col-md-10">
+        <div className="col col-12 col-xl-2 fw-bold">{start} - {end ? end : 'Present'}</div>
+        <div className="col col-12 col-xl-10">
             <h4 className="fw-bold">{title}</h4>
             <h4 className="fst-italic">{companyName}</h4>
             <div className="my-3">

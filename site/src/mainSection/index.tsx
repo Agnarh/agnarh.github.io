@@ -4,7 +4,7 @@ import { Experience } from './experience';
 import { Education } from './education';
 
 export const MainSection = () => (
-    <div className="col col-12 col-lg-7">
+    <div className="col col-12 col-md-7">
         <Summary />
         <Experience />
         <Education />

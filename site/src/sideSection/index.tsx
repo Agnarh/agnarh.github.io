@@ -5,7 +5,7 @@ import { Languages } from './languages';
 import './sideSection.scss';
 
 export const SideSection = () => (
-    <div className="col col-12 col-lg-5 side-section">
+    <div className="col col-12 col-md-5 side-section">
         <PersonalInfo />
         <Skills />
         <Languages />
