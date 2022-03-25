@@ -3,7 +3,7 @@ import { SectionWrapper } from '../common/sideSectionWrapper';
 import { ContactRecord } from './contactRecord';
 
 export const PersonalInfo = () => (
-    <SectionWrapper name="Personal Info">
+    <SectionWrapper name="Personal Info" className="order-last order-md-first">
         <ContactRecord
             name="Location"
             value="Russia, Saratov" />
