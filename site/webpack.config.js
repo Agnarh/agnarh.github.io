@@ -4,7 +4,7 @@ const isProduction = typeof NODE_ENV !== 'undefined' && NODE_ENV === 'production
 const mode = isProduction ? 'production' : 'development';
 const devtool = isProduction ? false : 'inline-source-map';
 
-// const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -12,6 +12,11 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
+const paths = {
+    src: path.join(__dirname, 'src'),
+    dst: path.join(__dirname, 'dst'),
+    assets: path.join(__dirname, 'src/assets')
+};
 
 const getOptimization = isProduction => {
     const config = {
@@ -53,14 +58,6 @@ module.exports = {
                     }
                 }
             },
-            // {
-            //     test: /\.(s[ac]ss|css)$/i,
-            //     use: [
-            //         MiniCssExtractPlugin.loader,
-            //         'css-loader',
-            //         'sass-loader'
-            //     ],
-            // },
             {
                 test: /\.(scss)$/,
                 use: [
@@ -80,10 +77,6 @@ module.exports = {
                     },
                     { loader: 'sass-loader' }
                 ]
-            },
-            {
-                test: /\.svg$/,
-                loader: 'svg-sprite-loader'
             }
         ]
     },
@@ -97,6 +90,11 @@ module.exports = {
         libraryTarget: 'umd'
     },
     plugins: [
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: path.resolve(paths.assets, 'photo.jpg'), to: path.resolve(paths.dst) }
+            ]
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
@@ -110,10 +108,6 @@ module.exports = {
         })
     ],
     resolve: {
-        // alias: {
-        //     'common': path.resolve(paths.common, ''),
-        //     'store': path.resolve(paths.store, ''),
-        // },
         extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     optimization: getOptimization(isProduction)
