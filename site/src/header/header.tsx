@@ -1,26 +1,13 @@
 import React, { FC } from 'react';
-import { ContactRecord } from './contactRecord';
+import './header.scss';
 
 export const Header: FC = () => {
     return (
-        <div>
-            <div>Photo</div>
+        <div className="header">
+            <div className="photo">Photo</div>
             <div>
-                <ContactRecord
-                    name="Email"
-                    href="mailto:uyuddar@gmail.com"
-                    value="uyuddar@gmail.com" />
-                <ContactRecord
-                    name="LinkedIn"
-                    href="https://www.linkedin.com/in/iurii-perederii"
-                    value="linkedin.com/in/iurii-perederii" />
-                <ContactRecord
-                    name="Telegram"
-                    href="https://t.me/agnarh"
-                    value="t.me/agnarh" />
-                <ContactRecord
-                    name="Location"
-                    value="Saratov, Russia" />
+                <h1>Iurii Perederii</h1>
+                <h3>Senior Software Engineer</h3>
             </div>
         </div>
     );
