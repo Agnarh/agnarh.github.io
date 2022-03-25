@@ -1,9 +1,9 @@
 import React from 'react';
-import { SideSectionWrapper } from './sideSectionWrapper';
+import { SectionWrapper } from '../common/sideSectionWrapper';
 import { ContactRecord } from './contactRecord';
 
 export const PersonalInfo = () => (
-    <SideSectionWrapper name="Personal Info">
+    <SectionWrapper name="Personal Info">
         <ContactRecord
             name="Location"
             value="Russia, Saratov" />
@@ -19,5 +19,5 @@ export const PersonalInfo = () => (
             name="Telegram"
             href="https://t.me/agnarh"
             value="t.me/agnarh" />
-    </SideSectionWrapper>
+    </SectionWrapper>
 );
