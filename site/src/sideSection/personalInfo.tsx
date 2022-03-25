@@ -1,10 +1,9 @@
 import React from 'react';
+import { SideSectionWrapper } from './sideSectionWrapper';
 import { ContactRecord } from './contactRecord';
 
 export const PersonalInfo = () => (
-    <div className="row gy-1 px-2 py-2">
-        <h4 className="fw-bold">Personal Info</h4>
-        <hr/>
+    <SideSectionWrapper name="Personal Info">
         <ContactRecord
             name="Location"
             value="Russia, Saratov" />
@@ -20,5 +19,5 @@ export const PersonalInfo = () => (
             name="Telegram"
             href="https://t.me/agnarh"
             value="t.me/agnarh" />
-    </div>
+    </SideSectionWrapper>
 );
