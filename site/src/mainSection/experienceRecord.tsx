@@ -11,19 +11,19 @@ type ExperienceRecordProps = {
 
 export const ExperienceRecord: FC<ExperienceRecordProps> = ({ start, end, title, companyName, responsibilities, achievements }) => (
     <>
-        <div className="col col-2 fw-bold">{start} - {end ? end : 'Present'}</div>
-        <div className="col col-10">
+        <div className="col col-12 col-md-2 fw-bold">{start} - {end ? end : 'Present'}</div>
+        <div className="col col-12 col-md-10">
             <h4 className="fw-bold">{title}</h4>
             <h4 className="fst-italic">{companyName}</h4>
             <div className="my-3">
-                <h6>Key Qualification & Responsibilities</h6>
+                <h6>Key Responsibilities:</h6>
                 <ul>
                     {responsibilities.map(responsibility => <li key={responsibility}>{responsibility}</li>)}
                 </ul>
             </div>
             {achievements && (
                 <div className="my-3">
-                    <h6>Key Achievements</h6>
+                    <h6>Key Achievements:</h6>
                     <ul>
                         {achievements.map(achievement => <li key={achievement}>{achievement}</li>)}
                     </ul>
