@@ -1,12 +1,37 @@
 import React, { FC } from 'react';
 
+const breakpoints = [0, 20, 40, 60, 80];
+const levels = ['Basic', 'Novice', 'Intermediate', 'Advanced', 'Expert'];
+
+const getLabel = (value: number) => {
+    if (value <= 0) {
+        return levels[0];
+    }
+
+    if (value > 80) {
+        return levels[4];
+    }
+
+    let label: string;
+
+    for (let index = 1; index < breakpoints.length; index++) {
+        if (breakpoints[index-1] < value && value <= breakpoints[index]) {
+            label = levels[index-1];
+            break;
+        }
+    }
+
+    return label;
+};
+
+
 type SkillRecordProps = {
     name: string;
     value: number;
-    label: string;
+    label?: string;
 };
 
-export const SkillRecord: FC<SkillRecordProps> = ({ name, value, label }) => (
+export const SkillRecord: FC<SkillRecordProps> = ({ name, value, label = getLabel(value) }) => (
     <div>
         <div>{name}</div>
         <div className="progress">
