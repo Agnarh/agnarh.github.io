@@ -12,7 +12,7 @@ export const ContactRecord: FC<ContactRecordProps> = ({ name, href, value }) => 
             <div className="fw-bold">{name}:</div>
             <div>
                 {href
-                    ? <a href={href}>{value}</a>
+                    ? <a href={href} target="_blank" >{value}</a>
                     : value}
             </div>
         </div>
