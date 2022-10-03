@@ -5,9 +5,23 @@ import { ExperienceRecord } from './experienceRecord';
 export const Experience = () => (
     <SectionWrapper name="Experience">
         <ExperienceRecord
+            start="Jun 2022"
+            title="Senior Software Engineer"
+            companyName="Alfaleasing"
+            companyLink="https://alfaleasing.ru/"
+            responsibilities={[
+                'Implemented business related features',
+                'Proposed and implemented technical improvements',
+                'Clarified requirements with the customer',
+                'Participated in grooming/planning sessions',
+                'Performed code reviews'
+            ]} />
+        <ExperienceRecord
             start="May 2021"
+            end="Jun 2022"
             title="Senior Software Engineer"
             companyName="EPAM"
+            companyLink="https://www.epam.com/"
             responsibilities={[
                 'Implemented business related features',
                 'Proposed and implemented technical improvements',
@@ -21,6 +35,7 @@ export const Experience = () => (
             end="May 2021"
             title="Software Engineer"
             companyName="EPAM"
+            companyLink="https://www.epam.com/"
             responsibilities={[
                 'Participated in releases',
                 'Implemented business related features',
@@ -40,6 +55,7 @@ export const Experience = () => (
             end="Sep 2020"
             title="Software Engineer"
             companyName="EPAM"
+            companyLink="https://www.epam.com/"
             responsibilities={[
                 'Took responsibility on challenging tasks (Mobile view implementation, FE performance optimization)',
                 'Implemented business related features',
@@ -56,6 +72,7 @@ export const Experience = () => (
             end="Mar 2019"
             title="Software Engineer"
             companyName="EPAM"
+            companyLink="https://www.epam.com/"
             responsibilities={[
                 'Implemented business related features',
                 'Communicated with customer on daily basis',
@@ -73,6 +90,7 @@ export const Experience = () => (
             end="Mar 2017"
             title="Junior Software Engineer"
             companyName="EPAM"
+            companyLink="https://www.epam.com/"
             responsibilities={[
                 'Implemented business related features',
                 'Communicated with customer on daily basis',
