@@ -14,8 +14,16 @@ export const Experience = () => (
                 'Proposed and implemented technical improvements',
                 'Clarified requirements with the customer',
                 'Participated in grooming/planning sessions',
-                'Performed code reviews'
-            ]} />
+                'Performed code reviews',
+                'Refactoring of legacy code'
+            ]}
+            achievements={[
+                'Setup and maintained monorepo for common npm packages',
+                'Introduced e2e testing via Cypress',
+                'Introduced unit testing via jest and react-testing-library',
+                'Imlplemented CI improvements - api smoke tests via newman/postman, post-deployment tests on cypress',
+                'Proposed and implemented DX improvements - ESlint, Stylelint, pre-commit hooks'
+            ]}/>
         <ExperienceRecord
             start="May 2021"
             end="Jun 2022"
