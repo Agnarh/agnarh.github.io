@@ -18,7 +18,8 @@ export const Experience = () => (
                 'Refactoring of legacy code'
             ]}
             achievements={[
-                'Setup and maintained monorepo for common npm packages',
+                'Setup and maintained various NextJS projects with different tools and several C#/.Net services',
+                'Setup and maintained npm monorepo (roolup, vite) with storybook and changesets workflow',
                 'Introduced e2e testing via Cypress',
                 'Introduced unit testing via jest and react-testing-library',
                 'Imlplemented CI improvements - api smoke tests via newman/postman, post-deployment tests on cypress',
